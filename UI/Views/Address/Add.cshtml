@@ -1,0 +1,31 @@
+﻿@using Dtos;
+@model AddressAddDto
+@{
+    ViewData["Title"] = "Add";
+}
+
+
+<form asp-action="Add" asp-controller="Address" method="post">
+
+    <div class="form-group">
+        <label asp-for="AddressName">İsim</label>
+        <input asp-for="AddressName" type="text" class="form-control" placeholder="Adres ..." required>
+    </div>
+   
+       <div class="form-group">
+        <label asp-for="City">İl</label>
+        <input asp-for="City" type="text" class="form-control" placeholder="İl giriniz.." required>
+    </div>
+    <div class="form-group">
+        <label asp-for="County">İlçe</label>
+        <input asp-for="County" type="text" class="form-control" placeholder="İlçe giriniz.." required>
+    </div>
+    <div class="form-group">
+        <label asp-for="ZipCode">Posta Kodu</label>
+        <input asp-for="ZipCode" type="text" class="form-control" placeholder="Posta Kodu giriniz.." required>
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+
+</form>

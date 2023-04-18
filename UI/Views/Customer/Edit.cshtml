@@ -1,0 +1,40 @@
+﻿@model CustomerEditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form asp-action="Edit" asp-controller="Customer" method="post">
+
+    <div class="form-group">
+        <label asp-for="CustomerUpdateDto.Name">İsim</label>
+        <input asp-for="CustomerUpdateDto.Name" type="text" class="form-control" value="@Model.Customer.Name" required>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustomerUpdateDto.Email">Email</label>
+        <input asp-for="CustomerUpdateDto.Email" type="text" class="form-control" value="@Model.Customer.Email" required>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustomerUpdateDto.Phone">Telefon</label>
+        <input asp-for="CustomerUpdateDto.Phone" type="text" class="form-control" value="@Model.Customer.Phone" required>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="CustomerUpdateDto.AddressId">Adres</label>
+        <select class="form-control" required asp-for="CustomerUpdateDto.AddressId">
+
+                @foreach (var item in Model.Addresses.Addresses)
+                {
+                    <option  value="@item.Id" selected="@(Model.Customer.AddressId==item.Id?"selected":null)">@item.AddressName</option>
+                }
+                
+            </select>
+
+        <div class="invalid-feedback">Example invalid custom select feedback</div>
+    </div>
+    <br />
+    
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+
+</form>
+
